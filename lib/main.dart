@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'CustomButton.dart';
+
 void main() {
   runApp(MaterialApp(
     title: 'My App',
@@ -38,10 +40,14 @@ class _MyAppState extends State<MyApp> {
         body: Center(
             child: SingleChildScrollView(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Image.asset('assets/pokemon.png'),
+              Image.asset(
+                'assets/logo_with_duo.png',
+                fit: BoxFit.contain,
+                width: 200,
+              ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: TextField(
@@ -65,7 +71,9 @@ class _MyAppState extends State<MyApp> {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: TextField(
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(30))),
                       labelText: 'Enter your password'),
                 ),
               ),
@@ -81,12 +89,11 @@ class _MyAppState extends State<MyApp> {
                 _email,
                 style: TextStyle(fontSize: 15, color: Colors.deepOrange),
               ),
-              RaisedButton(
-                onPressed: () {},
-                textColor: Colors.blue,
-                padding: const EdgeInsets.all(0.0),
-                child: const Text('Login'),
-              ),
+              CustomButton(
+                onPressed: () {
+                  print("Login");
+                },
+              )
             ],
           ),
         )),
