@@ -36,8 +36,10 @@ class _MyAppState extends State<MyApp> {
               onPressed: () {}),
         ),
         body: Center(
+            child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Image.asset('assets/pokemon.png'),
               Container(
@@ -70,9 +72,10 @@ class _MyAppState extends State<MyApp> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 alignment: Alignment.centerRight,
-                child: Text(
-                  "Create account",
-                ),
+                child: Text("Create account",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                    )),
               ),
               Text(
                 _email,
@@ -86,7 +89,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
           ),
-        ),
+        )),
       ),
     );
   }
